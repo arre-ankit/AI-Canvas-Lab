@@ -7,19 +7,15 @@ interface OutputNodeProps {
   data?: {
     outputText?: string;
   };
-  selected: boolean;
 }
 
-export const TextOutput = ({ id, data, selected }: OutputNodeProps) => {
+export const TextOutput = ({ id, data }: OutputNodeProps) => {
   return (
-    <BaseNode
+    <textarea
+      readOnly
       id={id}
-      title="Output"
-      selected={selected}
-    >
-      <div className="w-full">
-        {data?.outputText}
-      </div>
-    </BaseNode>
+      value={data?.outputText || 'Awaiting output...'}
+      className={`w-full h-20 resize-none text-sm p-2`}
+    />
   );
 };

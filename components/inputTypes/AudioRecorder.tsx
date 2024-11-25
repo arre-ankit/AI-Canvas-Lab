@@ -4,18 +4,17 @@ import { useState, useEffect } from 'react';
 
 interface NodeAudioRecorderProps {
   label: string;
-  onChange: ({ blob, url }: { blob: Blob | null; url: string | null }) => void;
+  onChange: (data: { blob: Blob | null; url: string | null }) => void;
   audioUrl: string | null;
-  isRecording: boolean;
-  setIsRecording: (isRecording: boolean) => void;
 }
 
-export const NodeAudioRecorder = ({ label, onChange, audioUrl, isRecording, setIsRecording }: NodeAudioRecorderProps) => {
+export const NodeAudioRecorder = ({ label, onChange, audioUrl }: NodeAudioRecorderProps) => {
+    const [isRecording, setIsRecording] = useState(false);
     const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(null);
-    const [timer, setTimer] = useState<number>(0);
+    const [timer, setTimer] = useState(0);
   
     useEffect(() => {
-      let interval: NodeJS.Timeout;
+      let interval:any;
       if (isRecording) {
         interval = setInterval(() => {
           setTimer(t => t + 1);
@@ -34,14 +33,9 @@ export const NodeAudioRecorder = ({ label, onChange, audioUrl, isRecording, setI
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         const recorder = new MediaRecorder(stream);
-        const chunks:BlobPart[] = [];
+        const chunks:Blob[] = [];
   
-        recorder.ondataavailable = (e) => {
-          if (e.data.size > 0) {
-            chunks.push(e.data);
-          }
-        };
-  
+        recorder.ondataavailable = (e) => chunks.push(e.data);
         recorder.onstop = () => {
           const blob = new Blob(chunks, { type: 'audio/wav' });
           const url = URL.createObjectURL(blob);
@@ -49,8 +43,8 @@ export const NodeAudioRecorder = ({ label, onChange, audioUrl, isRecording, setI
           setTimer(0);
         };
   
-        recorder.start();
         setMediaRecorder(recorder);
+        recorder.start();
         setIsRecording(true);
       } catch (err) {
         console.error('Error accessing microphone:', err);

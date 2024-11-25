@@ -27,14 +27,14 @@ export const PipelineToolbar = () => {
 
     return (
         <div style={{ padding: '10px' }}>
-            <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                <h2 className='text-lg font-bold ml-2'>Inputs</h2>
+            <div style={{ marginTop: '1px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                <h2 className='text-lg font-bold ml-2 text-orange-400'>Inputs</h2>
                 <div className='mt-9 flex flex-row gap-4'>
                     <DraggableNode type='text' label='Text' icon={<BsFileText />} />
                     <DraggableNode type='audio' label='Audio' icon={<BsMicFill />} />
                     <DraggableNode type='image' label='Image' icon={<BsImage />} style={{marginRight: '150px'}} />
                 </div>
-                <h2 className='text-lg font-bold'>Models</h2>
+                <h2 className='text-lg font-bold text-lime-600'>Models</h2>
                 <div className='mt-9 flex flex-row gap-4'>
                 <DraggableNode type='llm' label='LLM' icon={<BsRobot />}  />
                 <DraggableNode type='whisper' label='Whisper' icon={<FaRegFileAudio />} />

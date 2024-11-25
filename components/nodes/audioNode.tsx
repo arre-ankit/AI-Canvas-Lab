@@ -29,15 +29,19 @@ export const AudioNode = ({ id, data, selected }: AudioNodeProps) => {
       title="Audio"
       sources={[{ id: '' }]}
       selected={selected}
-      
+      style={{
+        width: 'auto',
+        minWidth: '200px',
+        maxWidth: '400px'
+      }}
     >
-      <NodeAudioRecorder 
-        label="Record Audio"
-        onChange={handleAudioChange}
-        audioUrl={audioUrl}
-        isRecording={isRecording}
-        setIsRecording={setIsRecording}
-      />
+      <div data-nodrag>
+        <NodeAudioRecorder 
+          label="Record Audio"
+          onChange={handleAudioChange}
+          audioUrl={audioUrl}
+        />
+      </div>
     </BaseNode>
   );
 };

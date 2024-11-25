@@ -21,30 +21,30 @@ export const LLMNode = ({ id, data, selected }: LLMNodeProps) => {
     <BaseNode
       id={id}
       title="LLM"
-      targets={[
-        { id: 'Text' }
-      ]}
-      sources={[
-        { id: '' },
-      ]}
+      targets={[{ id: 'Text' }]}
+      sources={[{ id: '' }]}
       selected={selected}
-      style={{ width: '250px', height: '250px' }}
+      style={{
+        width: 'auto',
+        minWidth: '200px',
+        maxWidth: '400px'
+      }}
     >
-      <NodeSelect
-        label="Model"
-        value={model}
-        onChange={(e) => setModel(e.target.value)}
-        options={[
-          { value: 'gpt-3.5-turbo', label: 'GPT-3.5 Turbo' },
-          { value: 'gpt-4', label: 'GPT-4' },
-          { value: 'claude-3', label: 'Claude 3' }
-        ]}
-      />
-     <TextOutput 
-       id='output'
-       selected={selected}
-     />
-
+      <div className="flex flex-col gap-4 p-2">
+        <NodeSelect
+          label="Model"
+          value={model}
+          onChange={(e) => setModel(e.target.value)}
+          options={[
+            { value: 'gpt-3.5-turbo', label: 'GPT-3.5 Turbo' },
+            { value: 'gpt-4', label: 'GPT-4' },
+            { value: 'claude-3', label: 'Claude 3' }
+          ]}
+        />
+        <TextOutput
+          id='output'
+        />
+      </div>
     </BaseNode>
   );
 };

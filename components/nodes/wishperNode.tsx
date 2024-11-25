@@ -26,6 +26,11 @@ export const WhisperNode = ({ id, data, selected }: WhisperNodeProps) => {
             selected={selected}
             targets={[{ id: 'Audio' }]}
             sources={[{ id: 'output' }]}
+            style={{
+                width: 'auto',
+                minWidth: '200px',
+                maxWidth: '400px'
+            }}
         >
             <NodeSelect
                 label="Model"

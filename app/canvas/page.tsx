@@ -6,11 +6,11 @@ import { ReactFlowProvider } from 'reactflow';
 
 export default function Canvas() { 
   return (
-    <div>
+    <div className="bg-[#1a1a1a] min-h-screen">
       <ReactFlowProvider>
-      <NavBar />
-      <PipelineToolbar />
-      <PipelineUI />
+        <NavBar />
+        <PipelineToolbar />
+        <PipelineUI />
       </ReactFlowProvider>
     </div>
   );

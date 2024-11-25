@@ -4,44 +4,45 @@ import { Handle, Position } from 'reactflow';
 
 const defaultStyles = {
     container: {
-        width: 200,
+        width: 400,
         minHeight: 100,
-        backgroundColor: 'white',
+        backgroundColor: '#f8f9fc',
         borderRadius: '8px',
         padding: '12px',
         display: 'flex',
         flexDirection: 'column',
         gap: '8px',
-        border: '1px solid #e5e7eb',  
-        boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         transition: 'all 200ms',
         overflow: 'hidden'
     },
     containerSelected: {
-        border: '2px solid rgb(147, 51, 234)',  
-        boxShadow: '0 4px 6px -1px rgba(147, 51, 234, 0.1), 0 2px 4px -1px rgba(147, 51, 234, 0.06)',
+        border: '2px solid #6366f1',
+        boxShadow: '0 4px 6px rgba(99, 102, 241, 0.2)',
     },
     header: {
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
-        color: '#374151',  
+        color: '#4338ca',
         padding: '4px 0',
         fontSize: '0.875rem',
-        fontWeight: '500'
+        fontWeight: '600'
     },
     headerSelected: {
-        color: 'rgb(147, 51, 234)',  
+        color: '#6366f1',
     },
     handle: {
-        width: '12px',  
-        height: '12px', 
-        background: '#e5e7eb',  
-        border: '1px solid #fff', 
+        width: '14px',
+        height: '14px',
+        background: 'black',
+        border: '2px solid #f8f9fc',
+        borderRadius: '50%',
     },
     handleSelected: {
-        background: 'rgb(147, 51, 234)',  
-        border: '1px solid #fff',
+        background: '#6366f1',
+        border: '2px solid #f8f9fc',
     }
 };
 
@@ -94,7 +95,7 @@ export const BaseNode = ({
                         ...target.style
                     }}
                 />
-                <div style={{left: '-60px', position: 'absolute', top: `${((index + 1) * 100) / (targets.length + 1)}%`, fontSize: '0.9rem', color: 'blue',}}>
+                <div style={{left: '-60px', position: 'absolute', top: `${((index + 1) * 100) / (targets.length + 1)}%`, fontSize: '0.9rem', color: 'red',}}>
                     {target.id}
                 </div>
                 </div>
@@ -123,7 +124,7 @@ export const BaseNode = ({
                         ...source.style
                     }}
                 />
-                <div style={{right: '-55px', position: 'absolute', top: `${((index + 1) * 100) / (sources.length + 1)}%`, fontSize: '0.9rem', color: 'blue',}}>
+                <div style={{right: '-55px', position: 'absolute', top: `${((index + 1) * 100) / (sources.length + 1)}%`, fontSize: '0.9rem', color: 'red',}}>
                     {source.id}
                 </div>
                 </div>
