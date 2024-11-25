@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/58bd4f8c-8810-44e1-b2b5-66156145fd20)
 
 # AI Canvas Lab
 A infinite canvas for creating AI workflows and experimenting with different LLM,Image Generation,Audio Generation models
@@ -23,7 +24,7 @@ Click on `Get Started` to reach the main page.
 
 
 ## What's under the hood?
-#### `src/apps`: The main web UI.
+#### `apps`: The main web UI.
 
 Built with:
 
@@ -31,16 +32,6 @@ Built with:
 - [TailwindCSS](https://tailwindcss.com)
 - [shadcn-ui](https://ui.shadcn.com)
 - Hosted on [Cloudflare Pages](https://pages.cloudflare.com/)
-
-#### `apps/cf-ai-backend`: This module handles AI response generation
-
-This is where the magic happens!💫
-
-Built with:
-
-- [Cloudflare Workers](https://workers.cloudflare.com/)
-- [Cloudflare AI](https://ai.cloudflare.com)
-
 
 ## How can I contribute?
 
@@ -56,7 +47,7 @@ Built with:
 1. Clone the repo
 
 ```bash
-git clone git@github.com:arre-ankit/speechsync-ai.git
+git clone https://github.com/arre-ankit/AI-Canvas-Lab.git
 ```
 
 2. Set up the Next.js app
@@ -66,16 +57,5 @@ npm install @cloudflare/next-on-pages
 npm run dev
 ```
 
-3. Set up the Cloudflare Worker Backend
-
-```
-cd cf-backend-worker
-npm run dev
-```
-
-4. Create `.env` file in the root of the project and add the following:
-```bash
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
-```
 
 
